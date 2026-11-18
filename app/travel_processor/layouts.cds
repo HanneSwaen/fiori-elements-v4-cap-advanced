@@ -123,7 +123,14 @@ annotate TravelService.Travel with @(
             {Value: TravelID},
             {Value: to_Agency_AgencyID},
             {Value: to_Customer_CustomerID},
-            {Value: Description}
+            {
+                $Type : 'UI.DataField',
+                Value : EndDate,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : BeginDate,
+            },
         ]},
         FieldGroup #DateData  : {Data: [
             {
@@ -543,3 +550,7 @@ annotate TravelService.Travel with @UI: {
         }, ],
     }
 };
+annotate TravelService.Travel with {
+    Description @UI.MultiLineText : true
+};
+
