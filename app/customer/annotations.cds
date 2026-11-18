@@ -5,35 +5,7 @@ annotate service.Passenger with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Value : createdAt,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : createdBy,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : LastChangedAt,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : LastChangedBy,
-            },
-            {
-                $Type : 'UI.DataField',
                 Value : CustomerID,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : FirstName,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : LastName,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : Title,
             },
             {
                 $Type : 'UI.DataField',
@@ -51,18 +23,6 @@ annotate service.Passenger with @(
                 $Type : 'UI.DataField',
                 Label : 'CountryCode_code',
                 Value : CountryCode_code,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : PhoneNumber,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : EMailAddress,
-            },
-            {
-                $Type : 'UI.DataField',
-                Value : FullName,
             },
         ],
     },
