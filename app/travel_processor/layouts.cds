@@ -248,6 +248,19 @@ annotate TravelService.Travel with @(
         },
         Text               : '{i18n>Canceled}',
     },
+    UI.DataPoint #TravelStatus_code : {
+        $Type : 'UI.DataPointType',
+        Value : TravelStatus_code,
+        Title : '{i18n>TravelStatus}',
+        Criticality : TravelStatus.criticality,
+    },
+    UI.HeaderFacets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'TravelStatus_code',
+            Target : '@UI.DataPoint#TravelStatus_code',
+        },
+    ],
 );
 
 annotate TravelService.Booking with @(
