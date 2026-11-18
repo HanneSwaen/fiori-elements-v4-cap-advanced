@@ -384,6 +384,32 @@ annotate TravelService.Booking with @(
             },
         ],
     },
+    UI.DataPoint #TotalSupplPrice1 : {
+        Value : TotalSupplPrice,
+        MinimumValue : 0,
+        MaximumValue : 120,
+    },
+    UI.Chart #TotalSupplPrice1 : {
+        ChartType : #Bullet,
+        Title : '{i18n>TotalSupplements}',
+        Measures : [
+            TotalSupplPrice,
+        ],
+        MeasureAttributes : [
+            {
+                DataPoint : '@UI.DataPoint#TotalSupplPrice1',
+                Role : #Axis1,
+                Measure : TotalSupplPrice,
+            },
+        ],
+    },
+    UI.HeaderFacets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'TotalSupplPrice',
+            Target : '@UI.Chart#TotalSupplPrice1',
+        },
+    ],
 );
 
 annotate TravelService.BookingSupplement with @UI: {
