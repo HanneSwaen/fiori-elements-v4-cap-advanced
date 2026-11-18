@@ -138,10 +138,29 @@ init() {
   })
 
 
-  //
-  // Action Implementations...
-  //
+ /**
+   * Calculate the progress of the travel booking.
+   */
 
+  // Travel is new (0 bookings) = 10%
+  // Travel contains at least one booking = 50%
+  // Travel contains at least two bookings = 65%
+  // Supplement target reached + 5 % per booking, max 90%
+  // Travel is accepted = 100% -> see acceptTravel
+  // Travel is rejected = 0% -> see rejectTravel
+ this.before ('SAVE', 'Travel', async req => {
+    if (!req.event === 'CREATE' && !req.event === 'UPDATE') return //only calculate if create or update
+    let score = 10
+    const { TravelUUID } = req.data
+    const res = await SELECT .from(Booking.drafts) .where `to_Travel_TravelUUID = ${TravelUUID}`
+    if (res.length >= 1) score += 40
+    if (res.length >= 2) score += 15
+    res.forEach(element => {
+      if (element.TotalSupplPrice > 70) score += 5
+    });
+    if (score > 90) score = 90;
+    req.data.Progress = score
+  })
   this.on ('acceptTravel', req => UPDATE (req.subject) .with ({TravelStatus_code:'A'}))
   this.on ('rejectTravel', req => UPDATE (req.subject) .with ({TravelStatus_code:'X'}))
 
