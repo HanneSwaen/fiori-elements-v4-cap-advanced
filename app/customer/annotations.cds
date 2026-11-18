@@ -116,6 +116,18 @@ annotate service.Passenger with @(
     UI.FieldGroup #ContactDetails : {
         $Type : 'UI.FieldGroupType',
         Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : to_Booking.to_Customer.EMailAddress,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : to_Booking.to_Customer.FullName,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : to_Booking.to_Customer.PhoneNumber,
+            },
         ],
     },
 );
