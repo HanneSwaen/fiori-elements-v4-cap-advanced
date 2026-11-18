@@ -1,4 +1,4 @@
-const cds = require ('@sap/cds');const { UPDATE } = require('@sap/cds/lib/ql/cds-ql');
+const cds = require ('@sap/cds');const { UPDATE, SELECT } = require('@sap/cds/lib/ql/cds-ql');
  require('./workarounds')
 
 class TravelService extends cds.ApplicationService {
@@ -83,6 +83,15 @@ init() {
       .where `BookingUUID = ${booking} `
     return this._update_totals4 (travel)
   }})
+
+  /**
+   * Update the Booking's TotalSupplPrice
+   */
+  this._update_totals_supplement = async function (booking) {
+    const {totals} = await SELECT.one `coalesce (sum (Price),0) as totals`.from (BookingSupplement.drafts).where
+    `to_Booking_BookingUUID = ${booking}`
+    return UPDATE (Booking.drafts, booking).with({TotalSupplPrice: totals})
+  }
 
   /**
    * Update the Travel's TotalPrice when a Booking Supplement is deleted.
