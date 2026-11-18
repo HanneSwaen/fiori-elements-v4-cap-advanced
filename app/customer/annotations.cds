@@ -105,5 +105,18 @@ annotate service.Passenger with @(
         City,
         PostalCode,
     ],
+    UI.HeaderFacets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Contact Details',
+            ID : 'ContactDetails',
+            Target : '@UI.FieldGroup#ContactDetails',
+        },
+    ],
+    UI.FieldGroup #ContactDetails : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+        ],
+    },
 );
 
