@@ -142,6 +142,7 @@
                     </execution>
 
                     <execution>
+                    <?m2e ignore?>
                         <id>cds.build</id>
                         <goals>
                             <goal>cds</goal>
