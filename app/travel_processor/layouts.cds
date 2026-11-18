@@ -260,7 +260,17 @@ annotate TravelService.Travel with @(
             ID : 'TravelStatus_code',
             Target : '@UI.DataPoint#TravelStatus_code',
         },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'TotalPrice',
+            Target : '@UI.DataPoint#TotalPrice',
+        },
     ],
+    UI.DataPoint #TotalPrice : {
+        $Type : 'UI.DataPointType',
+        Value : TotalPrice,
+        Title : '{i18n>TotalPrice}',
+    },
 );
 
 annotate TravelService.Booking with @(
