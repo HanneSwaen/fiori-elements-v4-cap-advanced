@@ -81,6 +81,7 @@ init() {
       .from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID})
     const { travel } = await SELECT.one `to_Travel_TravelUUID as travel` .from (Booking.drafts)
       .where `BookingUUID = ${booking} `
+      await this._update_totals_supplement (booking)
     return this._update_totals4 (travel)
   }})
 
