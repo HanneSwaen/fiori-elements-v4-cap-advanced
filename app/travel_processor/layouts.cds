@@ -131,6 +131,10 @@ annotate TravelService.Travel with @(
                 $Type : 'UI.DataField',
                 Value : BeginDate,
             },
+            {
+                $Type : 'UI.DataField',
+                Value : Description,
+            },
         ]},
         FieldGroup #DateData  : {Data: [
             {
@@ -552,5 +556,6 @@ annotate TravelService.Travel with @UI: {
 };
 annotate TravelService.Travel with {
     Description @UI.MultiLineText : true
+    @UI.Placeholder : '{i18n>DescrPlcehlder}';
 };
 
