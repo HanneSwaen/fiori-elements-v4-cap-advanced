@@ -119,6 +119,7 @@ annotate TravelService.Travel with @(
                         Label : '{i18n>TravelAdministrativeData}',
                         ID : 'i18nTravelAdministrativeData',
                         Target : '@UI.FieldGroup#i18nTravelAdministrativeData',
+                        @UI.PartOfPreview : false,
                     },]
             },
             { // booking list
