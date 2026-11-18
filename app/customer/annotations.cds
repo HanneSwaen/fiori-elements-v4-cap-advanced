@@ -9,7 +9,8 @@ annotate service.Passenger with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : Street,
+                Label : 'CountryCode_code',
+                Value : CountryCode_code,
             },
             {
                 $Type : 'UI.DataField',
@@ -21,8 +22,7 @@ annotate service.Passenger with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'CountryCode_code',
-                Value : CountryCode_code,
+                Value : Street,
             },
         ],
     },
