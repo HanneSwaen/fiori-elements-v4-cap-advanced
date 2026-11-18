@@ -93,7 +93,7 @@ annotate TravelService.Travel with @(
             {
                 $Type : 'UI.DataFieldForAnnotation',
                 Target : 'to_Agency/@Communication.Contact#contact',
-                Label : 'Contact Name',
+                Label : 'Agency',
             },
         ],
         Facets                : [
@@ -278,6 +278,23 @@ annotate TravelService.TravelAgency with @(
     Communication.Contact #contact : {
         $Type : 'Communication.ContactType',
         fn : Name,
+        tel : [
+            {
+                $Type : 'Communication.PhoneNumberType',
+                type : #work,
+                uri : PhoneNumber,
+            },
+        ],
+        adr : [
+            {
+                $Type : 'Communication.AddressType',
+                type : #work,
+                street : Street,
+                locality : City,
+                code : PostalCode,
+                country : CountryCode_code,
+            },
+        ],
     }
 );
 
