@@ -137,14 +137,22 @@ annotate TravelService.Travel with @(
         TargetValue : 100,
     },
     UI.SelectionPresentationVariant #tableView : {
-        $Type : 'UI.SelectionPresentationVariantType',
-        PresentationVariant : ![@UI.PresentationVariant],
-        SelectionVariant : {
-            $Type : 'UI.SelectionVariantType',
-            SelectOptions : [
-            ],
+        $Type              : 'UI.SelectionPresentationVariantType',
+        PresentationVariant: ![@UI.PresentationVariant],
+        SelectionVariant   : {
+            $Type        : 'UI.SelectionVariantType',
+            SelectOptions: [{
+                $Type       : 'UI.SelectOptionType',
+                PropertyName: TravelStatus_code,
+                Ranges      : [{
+                    $Type : 'UI.SelectionRangeType',
+                    Sign  : #I,
+                    Option: #EQ,
+                    Low   : 'O',
+                }, ],
+            }],
         },
-        Text : 'Table View',
+        Text               : '{i18n>Open}',
     },
     UI.LineItem #tableView : [
     ],
