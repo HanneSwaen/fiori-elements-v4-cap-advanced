@@ -21,7 +21,12 @@ annotate TravelService.Travel with @(
                 $Type : 'UI.DataFieldForAction',
                 Action: 'TravelService.rejectTravel',
                 Label : '{i18n>RejectTravel}'
-            }
+            },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'TravelService.deductDiscount',
+                Label : '{i18n>DeductDiscount}',
+            },
         ],
         HeaderInfo            : {
             TypeName      : '{i18n>Travel}',
