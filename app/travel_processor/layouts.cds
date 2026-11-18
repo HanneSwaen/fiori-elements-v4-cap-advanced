@@ -200,21 +200,48 @@ annotate TravelService.Travel with @(
         Text               : '{i18n>Accepted}',
     },
     UI.LineItem #tableView1 : [
+        {
+            $Type : 'UI.DataField',
+            Value : LastChangedAt,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : to_Agency_AgencyID,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : to_Customer_CustomerID,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : TravelID,
+            Label : 'TravelID',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : Description,
+        },
     ],
-    UI.SelectionPresentationVariant #tableView2 : {
-        $Type : 'UI.SelectionPresentationVariantType',
-        PresentationVariant : {
-            $Type : 'UI.PresentationVariantType',
-            Visualizations : [
-                '@UI.LineItem#tableView1',
-            ],
+     UI.SelectionPresentationVariant #tableView2: {
+        $Type              : 'UI.SelectionPresentationVariantType',
+        PresentationVariant: {
+            $Type         : 'UI.PresentationVariantType',
+            Visualizations: ['@UI.LineItem#tableView1', ],
         },
-        SelectionVariant : {
-            $Type : 'UI.SelectionVariantType',
-            SelectOptions : [
-            ],
+        SelectionVariant   : {
+            $Type        : 'UI.SelectionVariantType',
+            SelectOptions: [{
+                $Type       : 'UI.SelectOptionType',
+                PropertyName: TravelStatus_code,
+                Ranges      : [{
+                    $Type : 'UI.SelectionRangeType',
+                    Sign  : #I,
+                    Option: #EQ,
+                    Low   : 'X',
+                }, ],
+            }],
         },
-        Text : 'Table View 2',
+        Text               : '{i18n>Canceled}',
     },
 );
 
