@@ -1,4 +1,5 @@
-sap.ui.define(['sap/ui/core/mvc/ControllerExtension', 'sap/ui/core/message/Message', 'sap/ui/core/MessageType'], function (ControllerExtension, Message, MessageType) {
+sap.ui.define(['sap/ui/core/mvc/ControllerExtension', 'sap/ui/core/message/Message', 'sap/ui/core/MessageType',"sap/ui/model/json/JSONModel"], 
+	function (ControllerExtension, Message, MessageType, JSONModel) {
 		'use strict';
 
 	return ControllerExtension.extend('sap.fe.cap.customer.ext.controller.PassengerOPExtend', {
