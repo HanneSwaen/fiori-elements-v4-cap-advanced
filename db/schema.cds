@@ -107,3 +107,11 @@ entity SupplementScope {
   DeviationRangeLowValue  : Integer @Common .Label : 'Deviation Range Threshold';
   ToleranceRangeLowValue  : Integer @Common .Label : 'Tolerance Range Threshold';
 }
+
+entity MealOptionDeliveryPreference : CodeList {
+  key code : String enum {
+    SoonAfterTakeoff = 'S';
+    Midflight = 'M';
+    Late = 'L';
+  }default 'M';
+}
