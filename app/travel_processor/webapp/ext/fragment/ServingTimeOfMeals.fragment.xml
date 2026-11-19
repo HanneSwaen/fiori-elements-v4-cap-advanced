@@ -4,7 +4,7 @@
 	id="SB1"
 	selectionChange="handler.onSelectionChange"
 	enabled="{= ${ui>/editMode} === 'Editable' }"
-	selectedKey="{= ${DeliveryPreferences_code} }">
+	selectedKey="{= ${DeliveryPreference_code} }">
 
 		<items>
 			<SegmentedButtonItem id="_IDGenSegmentedButtonItem1" text="{i18n>early}" key="S"/>

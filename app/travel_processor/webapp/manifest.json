@@ -232,13 +232,13 @@
                             "controlConfiguration": {
                                 "to_BookSupplement/@com.sap.vocabularies.UI.v1.LineItem": {
                                     "columns": {
-                                        "ServingTimeOfMeals": {
+                                        "Ser": {
                                             "header": "{i18n>servingTimeOfMeals}",
                                             "position": {
                                                 "anchor": "DataField::Price",
                                                 "placement": "After"
                                             },
-                                            "template": "sap.fe.cap.travel.ext.fragment.ServingTimeOfMeals"
+                                            "template": "sap.fe.cap.travel.ext.fragment.Ser"
                                         }
                                     }
                                 }

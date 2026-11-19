@@ -7,7 +7,7 @@ sap.ui.define([
        onSelectionChange: function(oEvent) {
         var sNewDeliveryPreferenceCode = oEvent.getParameter("item").getKey();
         var oSegmBtn = oEvent.getSource();
-        osegmBtn.getBindingContext().setProperty("deliveryPreference_Code", sNewDeliveryPreferenceCode);
+        osegmBtn.getBindingContext().setProperty("DeliveryPreference_code", sNewDeliveryPreferenceCode);
     }
 };
 });
