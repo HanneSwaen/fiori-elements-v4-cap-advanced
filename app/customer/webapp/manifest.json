@@ -1,6 +1,18 @@
 {
   "_version": "1.90.0",
   "sap.app": {
+    "crossNavigation": {
+      "inbounds": {
+        "Customer-display": {
+          "signature": { "parameters": {}, "additionalParameters": "allowed" },
+          "semanticObject": "Customer",
+          "action": "display",
+          "title": "Customers",
+          "subTitle": "Display Customers",
+          "icon": "sap-icon://customer"
+        }
+      }
+    },
     "id": "sap.fe.cap.customer",
     "type": "application",
     "i18n": "i18n/i18n.properties",
