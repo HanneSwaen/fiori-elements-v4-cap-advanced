@@ -48,6 +48,7 @@ entity BookingSupplement : managed {
   key BookSupplUUID   : UUID;
   BookingSupplementID : Integer @Core.Computed;
   Price               : Decimal(16, 3);
+  DeliveryPreference   : Association to MealOptionDeliveryPreference;
   CurrencyCode        : Currency;
   to_Booking          : Association to Booking;
   to_Travel           : Association to Travel;
