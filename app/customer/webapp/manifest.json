@@ -38,6 +38,21 @@
       }
     }
   },
+  "crossNavigation": {
+    "inbounds": {
+      "Customer-display": {
+        "signature": {
+          "parameters": {},
+          "additionalParameters": "allowed"
+        },
+        "semanticObject": "Customer",
+        "action": "display",
+        "title": "Customers",
+        "subTitle": "Display Customers",
+        "icon": "sap-icon://fliht"
+      }
+    }
+  },
   "sap.ui": {
     "technology": "UI5",
     "icons": {
