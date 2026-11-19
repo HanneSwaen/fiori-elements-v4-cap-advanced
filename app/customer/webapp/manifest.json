@@ -143,7 +143,7 @@
               "content": {
                 "body": {
                   "sections": {
-                    "Bookings": {
+                    "OwnBookings": {
                       "template": "sap.fe.cap.customer.ext.fragment.Bookings",
                       "position": {
                         "placement": "After",
