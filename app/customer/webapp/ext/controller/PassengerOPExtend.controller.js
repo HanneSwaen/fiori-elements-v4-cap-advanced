@@ -29,6 +29,12 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension', 'sap/ui/core/message/Messa
 						oInfoMessage = new Message({
 							type: MessageType.Info,
 							message: await oExtensionAPI.getModel("i18n").getResourceBundle().getText("bookingsAttention")
+						}),
+						oPassengerBookingsModel = new JSONModel({
+							totalBookingsCount: 0,
+							newBookingsCount: 0,
+							acceptedBookingsCount: 0,
+							cancelledBookingsCount: 0
 						});
 
 					const oCustomer = await oBindingContext.requestObject(oBindingContext.getPath());
