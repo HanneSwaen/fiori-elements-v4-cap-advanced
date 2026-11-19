@@ -659,7 +659,7 @@ annotate TravelService.Travel @(Common.SideEffects #ReactonItemCreationOrDeletio
 });
 
 annotate TravelService.Travel with {
-    @(commoon: {
+    @(Common: {
         SemanticObject: 'Customer',
         SemanticObjectMapping: [
             {
