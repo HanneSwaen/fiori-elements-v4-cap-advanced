@@ -337,6 +337,23 @@ annotate TravelService.Travel with @(
             },
         ],
     },
+    Analytics.AggregatedProperty #TravelID_countdistinct : {
+        $Type : 'Analytics.AggregatedPropertyType',
+        Name : 'TravelID_countdistinct',
+        AggregatableProperty : TravelID,
+        AggregationMethod : 'countdistinct',
+        @Common.Label : 'TravelID (Count Distinct Values)',
+    },
+    UI.Chart #alpChart : {
+        $Type : 'UI.ChartDefinitionType',
+        ChartType : #Column,
+        Dimensions : [
+            PassengerCountry,
+        ],
+        DynamicMeasures : [
+            '@Analytics.AggregatedProperty#TravelID_countdistinct',
+        ],
+    },
 );
 
 annotate TravelService.Booking with @(
