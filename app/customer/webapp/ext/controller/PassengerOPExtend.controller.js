@@ -12,6 +12,20 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 			onInit: function () {
 				// you can access the Fiori elements extensionAPI via this.base.getExtensionAPI
 				var oModel = this.base.getExtensionAPI().getModel();
+			},
+			routing: {
+				onAfterBinding: async function (oBindingContext){
+					const
+					 	oExtensionAPI = this.base.getExtensionAPI(),
+						oModel = oExtensionAPI.getModel(),
+						sFunctionName = 'getBookingDataOfPassenger',
+						oFunction = oModel.bindContext(`/${sFunctionName}(...`),
+						oBookingTableAPI = oExtensionAPI.byID("fe::CustomSubSection::Bookings--OwnBookingsTable"),
+						oWarningMessage = new Message({
+							type: MessageType.Warning,
+							message: await oExtensionAPI.getModel("i18n").getResourceBundle().getText("bookingsNew")
+						});
+				}
 			}
 		}
 	});
