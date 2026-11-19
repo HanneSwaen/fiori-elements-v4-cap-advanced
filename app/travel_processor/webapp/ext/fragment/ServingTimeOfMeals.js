@@ -4,13 +4,10 @@ sap.ui.define([
     'use strict';
 
     return {
-        /**
-         * Generated event handler.
-         *
-         * @param oEvent the event object provided by the event provider.
-         */
-        onPress: function(oEvent) {
-            MessageToast.show("Custom handler invoked.");
-        }
-    };
+       onSelectionChange: function(oEvent) {
+        var sNewDeliveryPreferenceCode = oEvent.getParameter("item").getKey();
+        var oSegmBtn = oEvent.getSource();
+        osegmBtn.getBindingContext().setProperty("deliveryPreference_Code", sNewDeliveryPreferenceCode);
+    }
+};
 });
