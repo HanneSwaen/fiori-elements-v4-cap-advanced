@@ -9,10 +9,11 @@ service TravelService @(path:'/processor') {
     { grant: ['*'], to: 'admin'}
   ])
 
+entity SupplementScope as projection on my.SupplementScope;
+
+ // Function import used in Controller Extension 'PassengerOPExtend.js' to calculate booking data
   function getBookingDataOfPassenger(CustomerID: String) returns my.BookingData;
-
-  entity SupplementScope as projection on my.SupplementScope ;
-
+  
   // Travel: To avoid number formatting of the travel ID, make it a String
   entity Travel as projection on my.Travel {
     *,
@@ -41,7 +42,7 @@ service TravelService @(path:'/processor') {
     action createTravelByTemplate() returns Travel;
     action rejectTravel();
     action acceptTravel();
-    action deductDiscount(@(UI.ParameterDefaultValue : 5)percent: Percentage not null @mandatory) returns Travel;
+    action deductDiscount(@(UI.ParameterDefaultValue : 5)percent: Percentage not null @mandatory ) returns Travel;
   };
 
   // Passenger: Add joined property 'FullName' and association 'to_Booking'
@@ -66,7 +67,7 @@ service TravelService @(path:'/processor') {
 type Percentage : Integer @assert.range: [1,100];
 
 annotate TravelService.Travel with @Aggregation.ApplySupported: {
-  Transformations:[
+  Transformations       : [
     'aggregate',
     'topcount',
     'bottomcount',
@@ -77,17 +78,16 @@ annotate TravelService.Travel with @Aggregation.ApplySupported: {
     'expand',
     'search'
   ],
- Rollup               : #None,
- PropertyRestrictions : true,
- GroupableProperties  : [
-    to_customer_CustomerID,
-    to_agency_AgencyID,
+  Rollup                : #None,
+  PropertyRestrictions  : true,
+  GroupableProperties   : [
+    to_Customer_CustomerID,
+    to_Agency_AgencyID,
     TravelStatus_code,
     BeginDate,
     PassengerCountry,
- ],
-    AggregatableProperties : [
-      {Property: TravelID,}
-
- ],
+  ],
+  AggregatableProperties: [
+    {Property: TravelID, }
+  ],
 };
