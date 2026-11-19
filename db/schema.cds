@@ -10,7 +10,7 @@ using {
 namespace sap.fe.cap.travel;
 
 type BookingData :{
-  HashNewBookings : Boolean
+  HasNewBookings : Boolean
 }
 
 entity Travel : managed {

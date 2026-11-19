@@ -1,5 +1,5 @@
-sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExtension) {
-	'use strict';
+sap.ui.define(['sap/ui/core/mvc/ControllerExtension', 'sap/ui/core/message/Message', 'sap/ui/core/MessageType'], function (ControllerExtension, Message, MessageType) {
+		'use strict';
 
 	return ControllerExtension.extend('sap.fe.cap.customer.ext.controller.PassengerOPExtend', {
 		// this section allows to extend lifecycle hooks or hooks provided by Fiori elements
@@ -19,8 +19,8 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 					 	oExtensionAPI = this.base.getExtensionAPI(),
 						oModel = oExtensionAPI.getModel(),
 						sFunctionName = 'getBookingDataOfPassenger',
-						oFunction = oModel.bindContext(`/${sFunctionName}(...`),
-						oBookingTableAPI = oExtensionAPI.byID("fe::CustomSubSection::Bookings--OwnBookingsTable"),
+						oFunction = oModel.bindContext(`/${sFunctionName}(...)`),
+						oBookingTableAPI = oExtensionAPI.byId("fe::CustomSubSection::OwnBookings--OwnBookingsTable"),
 						oWarningMessage = new Message({
 							type: MessageType.Warning,
 							message: await oExtensionAPI.getModel("i18n").getResourceBundle().getText("bookingsNew")
@@ -32,13 +32,12 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 
 					const oCustomer = await oBindingContext.requestObject(oBindingContext.getPath());
 					oFunction.setParameter("CustomerID", oCustomer.CustomerID);
-					const oBookingData = await oFunction.requestObject();
 					await oFunction.execute();
 					const oContext = oFunction.getBoundContext();
 					if(this.message !== undefined){
 						oBookingTableAPI.removeMessage(this.message);
 					}
-					if (oContext.getProperty("HashNewBookings")) {
+					if (oContext.getProperty("HasNewBookings")) {
 						this.message = oBookingTableAPI.addMessage(oWarningMessage);
 						this.base.getExtensionAPI().showMessages([oInfoMessage]);
 					}
