@@ -15,7 +15,7 @@ init() {
    * @returns BookingData
    */
 
-  this.on('getBookingDataOfPassenger', async req => {
+  this.on('getBookingDataOfPassenger', async (req) => {
     const { CustomerID } = req.data
     const allCustomerBookings = await SELECT `BookingStatus_code as status` .from (Booking) .where `to_Customer_CustomerID = ${CustomerID}`
     const bookingData = { HasNewBookings: false }
