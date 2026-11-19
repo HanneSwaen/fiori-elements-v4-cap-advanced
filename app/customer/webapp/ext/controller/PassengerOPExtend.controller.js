@@ -49,7 +49,7 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension', 'sap/ui/core/message/Messa
 					if(this.message !== undefined){
 						oBookingTableAPI.removeMessage(this.message);
 					}
-					if (oContext.getProperty("HasNewBookings")) {
+					if (oContext.getProperty("NewBookingsCount") > 0) {
 						this.message = oBookingTableAPI.addMessage(oWarningMessage);
 						this.base.getExtensionAPI().showMessages([oInfoMessage]);
 					}
