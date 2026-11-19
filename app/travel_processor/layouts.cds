@@ -342,13 +342,26 @@ annotate TravelService.Travel with @(
         Name : 'TravelID_countdistinct',
         AggregatableProperty : TravelID,
         AggregationMethod : 'countdistinct',
-        @Common.Label : 'TravelID (Count Distinct Values)',
+        @Common.Label : '{i18n>Travels}',
     },
     UI.Chart #alpChart : {
         $Type : 'UI.ChartDefinitionType',
         ChartType : #Column,
         Dimensions : [
             PassengerCountry,
+            to_Customer_CustomerID,
+        ],
+        DynamicMeasures : [
+            '@Analytics.AggregatedProperty#TravelID_countdistinct',
+        ],
+        Title : '{i18n>TravelsByCustomerCountry}',
+    },
+    UI.Chart #alpChart1 : {
+        $Type : 'UI.ChartDefinitionType',
+        ChartType : #Column,
+        Dimensions : [
+            PassengerCountry,
+            to_Customer_CustomerID,
         ],
         DynamicMeasures : [
             '@Analytics.AggregatedProperty#TravelID_countdistinct',
@@ -687,3 +700,7 @@ annotate TravelService.Travel with {
     })
     to_Customer 
 }
+annotate TravelService.Travel with {
+    PassengerCountry @Common.Label : '{i18n>CustomerCountry}'
+};
+
