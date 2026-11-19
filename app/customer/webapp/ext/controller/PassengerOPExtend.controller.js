@@ -24,6 +24,10 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 						oWarningMessage = new Message({
 							type: MessageType.Warning,
 							message: await oExtensionAPI.getModel("i18n").getResourceBundle().getText("bookingsNew")
+						}),
+						oInfoMessage = new Message({
+							type: MessageType.Info,
+							message: await oExtensionAPI.getModel("i18n").getResourceBundle().getText("bookingsAttention")
 						});
 
 					const oCustomer = await oBindingContext.requestObject(oBindingContext.getPath());
@@ -36,6 +40,7 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 					}
 					if (oContext.getProperty("HashNewBookings")) {
 						this.message = oBookingTableAPI.addMessage(oWarningMessage);
+						this.base.getExtensionAPI().showMessages([oInfoMessage]);
 					}
 				}
 			}
