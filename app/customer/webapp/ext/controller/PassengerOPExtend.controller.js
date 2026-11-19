@@ -25,6 +25,18 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 							type: MessageType.Warning,
 							message: await oExtensionAPI.getModel("i18n").getResourceBundle().getText("bookingsNew")
 						});
+
+					const oCustomer = await oBindingContext.requestObject(oBindingContext.getPath());
+					oFunction.setParameter("CustomerID", oCustomer.CustomerID);
+					const oBookingData = await oFunction.requestObject();
+					await oFunction.execute();
+					const oContext = oFunction.getBoundContext();
+					if(this.message !== undefined){
+						oBookingTableAPI.removeMessage(this.message);
+					}
+					if (oContext.getProperty("HashNewBookings")) {
+						this.message = oBookingTableAPI.addMessage(oWarningMessage);
+					}
 				}
 			}
 		}
