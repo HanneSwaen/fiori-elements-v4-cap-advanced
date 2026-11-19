@@ -106,7 +106,7 @@ annotate TravelService.Travel with @(
                 $Type : 'UI.DataFieldForIntentBasedNavigation',
                 SemanticObject : 'Customer',
                 Action         : 'display',
-                Label          : 'Display Customer',
+                Label          : '{i18n>DisplayCustomer}',
                 requiresContext     : false,
 
                 Mapping        : [
