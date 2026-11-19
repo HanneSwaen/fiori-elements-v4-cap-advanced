@@ -9,6 +9,20 @@ init() {
    */
   const { Travel, Booking, BookingSupplement } = this.entities
 
+  /**
+   * Function import handler: getBookingDataOfPassenger
+   * @param CustomerID
+   * @returns BookingData
+   */
+
+  this.on('getBookingDataOfPassenger', async req => {
+    const { CustomerID } = req.data
+    const allCustomerBookings = await SELECT `BookingStatus_code as status` .from (Booking) .where `to_Customer_CustomerID = ${CustomerID}`
+    const bookingData = { HashNewBookings: false }
+
+    bookingData.HashNewBookings = allCustomerBookings.some((booking) => {booking.status === 'N';})
+    return bookingData
+  });
 
   /**
    * Fill in primary keys for new Travels.
