@@ -41,6 +41,11 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension', 'sap/ui/core/message/Messa
 					oFunction.setParameter("CustomerID", oCustomer.CustomerID);
 					await oFunction.execute();
 					const oContext = oFunction.getBoundContext();
+					oPassengerBookingsModel.setProperty("/totalBookingsCount", oContext.getProperty("TotalBookingsCount"));
+					oPassengerBookingsModel.setProperty("/newBookingsCount", oContext.getProperty("NewBookingsCount"));
+					oPassengerBookingsModel.setProperty("/acceptedBookingsCount", oContext.getProperty("AcceptedBookingsCount"));
+					oPassengerBookingsModel.setProperty("/cancelledBookingsCount", oContext.getProperty("CancelledBookingsCount"));
+					
 					if(this.message !== undefined){
 						oBookingTableAPI.removeMessage(this.message);
 					}
