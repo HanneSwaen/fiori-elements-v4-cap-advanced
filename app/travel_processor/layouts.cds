@@ -102,6 +102,21 @@ annotate TravelService.Travel with @(
                 Target : 'to_Agency/@Communication.Contact#contact',
                 Label : 'Agency',
             },
+            {
+                $Type : 'UI.DataFieldForIntentBasedNavigation',
+                SemanticObject : 'Customer',
+                Action         : 'display',
+                Label          : 'Display Customer',
+                requiresContext     : false,
+
+                Mapping        : [
+                    {
+                        $Type : 'Common.SemanticObjectMappingType',
+                        LocalProperty : to_Customer_CustomerID,
+                        SemanticObjectProperty : 'CustomerID',
+                    },
+                ],
+            }
         ],
         Facets                : [
             {
