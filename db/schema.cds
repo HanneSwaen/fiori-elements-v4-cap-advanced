@@ -13,7 +13,7 @@ type BookingData :{
   TotalBookingsCount: Integer;
   NewBookingsCount: Integer;
   AcceptedBookingsCount: Integer;
-  canceledBookingsCount: Integer;
+  CancelledBookingsCount: Integer;
 }
 
 entity Travel : managed {

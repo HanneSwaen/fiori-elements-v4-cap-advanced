@@ -19,10 +19,10 @@ init() {
     const { CustomerID } = req.data
     const allCustomerBookings = await SELECT `BookingStatus_code as status` .from (Booking) .where `to_Customer_CustomerID = ${CustomerID}`
     const bookingData = {
-      TotalBookings: 0,
+      TotalBookingsCount: 0,
       NewBookingsCount: 0,
       AcceptedBookingsCount: 0,
-      RejectedBookingsCount: 0
+      CancelledBookingsCount: 0
     }
     allCustomerBookings.forEach(booking => {
       bookingData.TotalBookingsCount++
@@ -30,11 +30,11 @@ init() {
         case 'N':
           bookingData.NewBookingsCount++
           break
-        case 'A':
+        case 'B':
           bookingData.AcceptedBookingsCount++
           break
         case 'X':
-          bookingData.RejectedBookingsCount++
+          bookingData.CancelledBookingsCount++
           break
       }
     })

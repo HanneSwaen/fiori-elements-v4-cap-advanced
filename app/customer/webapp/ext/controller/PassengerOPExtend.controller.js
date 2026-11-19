@@ -36,6 +36,7 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension', 'sap/ui/core/message/Messa
 							acceptedBookingsCount: 0,
 							cancelledBookingsCount: 0
 						});
+						this.base.getView().setModel(oPassengerBookingsModel, "passengerBookingsModel");
 
 					const oCustomer = await oBindingContext.requestObject(oBindingContext.getPath());
 					oFunction.setParameter("CustomerID", oCustomer.CustomerID);
